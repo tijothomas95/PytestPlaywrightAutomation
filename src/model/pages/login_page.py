@@ -35,7 +35,7 @@ class PassengersPage(BasePage):
 
     @property
     def _title_option(self):
-        return self._passenger_form_container.locator("button.dropdown-item__link").filter(has_text=self._title)
+        return self._passenger_form_container.get_by_role("button", name=self._title, exact=True)
 
     @property
     def _first_name_field(self):

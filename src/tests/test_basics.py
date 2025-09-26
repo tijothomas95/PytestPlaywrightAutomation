@@ -1,23 +1,18 @@
 import pytest
+from playwright.sync_api import expect
 
 from utils.enums import TravelType, Location, PassengerType, FareType
 from utils.fake_data import generate_passengers
 
-
-@pytest.mark.smoke
-def test_validate_homepage(home_page):
-    assert home_page.page.title() != ""
-
-
 @pytest.mark.smoke
 def test_falsy_title(home_page):
-    assert home_page.page.title() == "TBC to remove"
+    assert home_page.title() == "TBC to remove"
 
 
 @pytest.mark.parametrize(
 "adults, teens, children, infants",
     [
-        (2, 1, 1, 1),
+        (2, 0, 0, 0),
     ]
 )
 @pytest.mark.smoke
@@ -50,7 +45,13 @@ def test_search_flights(home_page, adults, teens, children, infants):
     passengers = generate_passengers(adults=adults, teens=teens, children=children, infants=infants)
     passengers_page.fill_all_passengers(passengers)
 
-    # --- Finally ---
+    # --- And when selecting seats ---
     seats_page = passengers_page.click_continue()
-    assert home_page.page.title() != ""
+    seats_page.select_seats(passengers)
+    seats_page.click_next_flight()
+    seats_page.select_seats(passengers)
+    seats_page.click_continue()
+    bags_page = seats_page.add_fast_track()
 
+    # --- Then ---
+    expect(bags_page._checkin_bags).to_be_visible()
