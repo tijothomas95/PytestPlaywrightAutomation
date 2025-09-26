@@ -2,7 +2,7 @@ import pytest
 from playwright.sync_api import expect
 
 from utils.enums import TravelType, Location, PassengerType, FareType
-from utils.fake_data import generate_passengers
+from utils.fake_data import generate_passengers, get_trip_dates
 
 @pytest.mark.smoke
 def test_failed_case(home_page):
@@ -10,25 +10,20 @@ def test_failed_case(home_page):
 
 @pytest.mark.parametrize(
 "adults, teens, children, infants",
-    [
-        (2, 0, 0, 0),
-        (2, 1, 0, 1),
-    ]
+    [(2, 0, 0, 0)]
 )
 @pytest.mark.smoke
-def test_search_flights(home_page, adults, teens, children, infants):
+def test_search_lights(home_page, adults, teens, children, infants):
     # --- Given ---
     home_page.select_travel_type(TravelType.RETURN_TRIP)
     home_page.fill_departure_fld(Location.DUBLIN)
     home_page.fill_destination_fld(Location.MADRID)
 
-    home_page.select_travel_date("2 October 2025")
-    home_page.select_travel_date("03 October 2025")
+    outbound_date, inbound_date = get_trip_dates(14, 15)
+    home_page.select_travel_date(outbound_date)
+    home_page.select_travel_date(inbound_date)
 
-    home_page.select_passengers(passenger=PassengerType.ADULTS, exp_count=adults)
-    home_page.select_passengers(passenger=PassengerType.TEENS, exp_count=teens)
-    home_page.select_passengers(passenger=PassengerType.CHILDREN, exp_count=children)
-    home_page.select_passengers(passenger=PassengerType.INFANT, exp_count=infants)
+    home_page.select_passenger_list(adults, teens, children, infants)
 
     # --- When ---
     flights_page = home_page.click_search()

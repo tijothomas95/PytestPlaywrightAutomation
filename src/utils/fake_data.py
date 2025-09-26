@@ -1,9 +1,8 @@
 import random
 from enum import Enum
-
 from faker import Faker
-
 from utils.enums import PassengerType
+from datetime import datetime, timedelta
 
 faker = Faker()
 
@@ -51,5 +50,23 @@ def generate_passengers(adults=2, teens=1, children=1, infants=1):
         passengers.append(FakePassenger(PassengerType.CHILDREN, i))
     for i in range(infants):
         passengers.append(FakePassenger(PassengerType.INFANT, i))
-    return passengers
+    sorted_passengers = sorted(passengers, key=lambda p: sort_order[p.search_passenger_type])
+    return sorted_passengers
 
+
+sort_order = {
+    PassengerType.INFANT: 0,
+    PassengerType.ADULTS: 1,
+    PassengerType.CHILDREN: 2,
+    PassengerType.TEENS: 3,
+}
+
+
+def get_trip_dates(days_from_today: int = 3, return_after_days: int = 14):
+    today = datetime.today()
+    outbound = today + timedelta(days=days_from_today)
+    inbound = outbound + timedelta(days=return_after_days)
+
+    # format to match "2 October 2025"
+    fmt = "%-d %B %Y"
+    return outbound.strftime(fmt), inbound.strftime(fmt)

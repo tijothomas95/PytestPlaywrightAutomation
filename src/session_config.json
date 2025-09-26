@@ -1,5 +1,5 @@
 {
-  "browser": "chromium",
-  "headless": true,
+  "browser": "firefox",
+  "headless": false,
   "viewport": { "width": 1280, "height": 720 }
 }

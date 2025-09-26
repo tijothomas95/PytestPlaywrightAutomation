@@ -21,8 +21,3 @@ class FaresPage(BasePage):
         self._fare_type = str(fare_type)
         self._fare_column.click()
         return PassengersPage(self.page)
-
-
-
-
-

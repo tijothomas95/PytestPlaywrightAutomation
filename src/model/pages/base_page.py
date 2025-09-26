@@ -24,6 +24,3 @@ class BasePage:
 
     def screenshot(self, name: str = "screenshot.png"):
         self.page.screenshot(path=name)
-
-    def wait_for_page_load(self):
-        expect(self.page).to_have_load_state("networkidle")

@@ -91,7 +91,7 @@ class HomePage(BasePage):
         return self._dependent_info_modal.get_by_role("button", name="Ok, got it")
 
     def title(self) -> str:
-        return self.page.title()
+        return self.get_title()
 
     def accept_cookies(self):
         if self._cookie_popup.is_visible():
@@ -115,7 +115,6 @@ class HomePage(BasePage):
 
     def fill_destination_fld(self, place: Location):
         self.fill_airport_field(self._destination_fld, place)
-
 
     def select_travel_date(self, date_str):
         date_obj = datetime.strptime(date_str, "%d %B %Y")
@@ -178,7 +177,13 @@ class HomePage(BasePage):
             current_count = int(value_locator.text_content().strip())
 
 
+    def select_passenger_list(self, adults: int, teens: int, children: int, infants: int):
+        self.select_passengers(passenger=PassengerType.ADULTS, exp_count=adults)
+        self.select_passengers(passenger=PassengerType.TEENS, exp_count=teens)
+        self.select_passengers(passenger=PassengerType.CHILDREN, exp_count=children)
+        self.select_passengers(passenger=PassengerType.INFANT, exp_count=infants)
+
+
     def click_search(self):
         self._search_flight_btn.click()
         return FlightsPage(self.page)
-
