@@ -24,6 +24,8 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+allure-results/
+assets/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -46,6 +48,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+report.html
 
 # Translations
 *.mo
