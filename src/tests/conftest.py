@@ -1,15 +1,18 @@
 import json
+from pathlib import Path
 
 import allure
 import pytest
-from pathlib import Path
-
-from faker import Faker
 
 from model.pages.home_page import HomePage
 
 SUPPORTED_BROWSERS = {"chromium", "firefox", "webkit"}
 
+@pytest.fixture
+def page(page):
+    page.set_default_timeout(10_000)  # 10s for all actions
+    page.set_default_navigation_timeout(20_000)  # 20s for navigations
+    return page
 
 def load_json(file_name):
     path = Path(__file__).resolve().parent.parent / file_name

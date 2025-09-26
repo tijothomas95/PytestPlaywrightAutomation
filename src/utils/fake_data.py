@@ -24,7 +24,7 @@ class FakePassenger:
             title = random.choice([Title.MR, Title.MS]).value
             form_passenger_type = "Child"
         elif passenger_type == PassengerType.INFANT:
-            dob = faker.date_of_birth(minimum_age=0, maximum_age=2)
+            dob = faker.date_of_birth(minimum_age=0, maximum_age=1)
             title = random.choice([Title.MR, Title.MS]).value
             form_passenger_type = "Infant"
         else:
