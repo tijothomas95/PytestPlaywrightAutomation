@@ -13,7 +13,7 @@ def test_failed_case(home_page):
     [(2, 0, 0, 0)]
 )
 @pytest.mark.smoke
-def test_search_lights(home_page, adults, teens, children, infants):
+def test_search_flights(home_page, adults, teens, children, infants):
     # --- Given ---
     home_page.select_travel_type(TravelType.RETURN_TRIP)
     home_page.fill_departure_fld(Location.DUBLIN)
