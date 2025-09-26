@@ -1,0 +1,11 @@
+services:
+  tests:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    working_dir: /app
+    volumes:
+      - ./allure-results:/app/allure-results
+    command: >
+      sh -c "rm -rf /app/allure-results/* &&
+             pytest -v --alluredir=/app/allure-results"

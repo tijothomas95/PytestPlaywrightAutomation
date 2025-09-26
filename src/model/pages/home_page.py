@@ -90,6 +90,8 @@ class HomePage(BasePage):
     def _accept_dependent_info_modal(self):
         return self._dependent_info_modal.get_by_role("button", name="Ok, got it")
 
+    def title(self) -> str:
+        return self.page.title()
 
     def accept_cookies(self):
         if self._cookie_popup.is_visible():

@@ -5,14 +5,14 @@ from utils.enums import TravelType, Location, PassengerType, FareType
 from utils.fake_data import generate_passengers
 
 @pytest.mark.smoke
-def test_falsy_title(home_page):
-    assert home_page.title() == "TBC to remove"
-
+def test_failed_case(home_page):
+    assert home_page.title() == "Forcefully failed"
 
 @pytest.mark.parametrize(
 "adults, teens, children, infants",
     [
         (2, 0, 0, 0),
+        (2, 1, 0, 1),
     ]
 )
 @pytest.mark.smoke
