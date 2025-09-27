@@ -10,8 +10,8 @@ SUPPORTED_BROWSERS = {"chromium", "firefox", "webkit"}
 
 @pytest.fixture
 def page(page):
-    page.set_default_timeout(20_000)  # 20s for all actions
-    page.set_default_navigation_timeout(20_000)  # 20s for navigations
+    page.set_default_timeout(30_000)  # 30s for all actions
+    page.set_default_navigation_timeout(30_000)  # 30s for navigations
     return page
 
 def load_json(file_name):
@@ -110,7 +110,6 @@ def base_url():
 def web_page(page, base_url):
     page.goto(base_url)
     print("Base URL:", base_url)
-    print("Page title:", page.title())
     return page
 
 

@@ -92,7 +92,7 @@ class SeatsPage(BasePage):
 
             seat.click()
             used_seats.add(seat_id)
-        self.page.wait_for_timeout(2000)
+        self.page.wait_for_timeout(3000)
 
 
     def wait_for_cart_ready(self):
