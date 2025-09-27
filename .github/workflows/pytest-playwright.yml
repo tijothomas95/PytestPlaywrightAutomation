@@ -42,4 +42,4 @@ jobs:
 
     - name: Show Allure Report URL
       continue-on-error: true
-      run: echo "Allure Report deployed https://tijothomas95.github.io/PlaywrightCucumberTypescript/"
+      run: echo "Allure Report deployed https://tijothomas95.github.io/PytestPlaywrightAutomation/"
