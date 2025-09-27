@@ -32,12 +32,17 @@ jobs:
         name: allure-results
         path: allure-results
 
+    - name: Generate Allure Report
+      if: always()
+      run: |
+        allure generate allure-results --clean -o allure-report
+
     - name: Publish Allure Report to GitHub Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./allure-results
+        publish_dir: ./allure-report
         publish_branch: gh-pages
 
     - name: Show Allure Report URL
