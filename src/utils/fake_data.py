@@ -1,4 +1,6 @@
 import random
+import re
+
 from enum import Enum
 from faker import Faker
 from utils.enums import PassengerType
@@ -70,3 +72,6 @@ def get_trip_dates(days_from_today: int = 3, return_after_days: int = 14):
     # format to match "2 October 2025"
     fmt = "%-d %B %Y"
     return outbound.strftime(fmt), inbound.strftime(fmt)
+
+def normalize_spaces(text: str) -> str:
+    return re.sub(r"\s+", " ", text.replace("\u00A0", " ")).strip()

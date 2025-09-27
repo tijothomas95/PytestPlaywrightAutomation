@@ -101,7 +101,6 @@ class HomePage(BasePage):
         self._travel_type = str(travel_type)
         if not self._travel_type_btn.is_checked():
             self._travel_type_btn.check()
-        print("Selected travel type: ", travel_type)
 
     def fill_airport_field(self, field, place: Location):
         place = str(place)

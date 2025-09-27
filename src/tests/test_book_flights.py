@@ -28,14 +28,19 @@ def test_search_flights(home_page, adults, teens, children, infants):
 
     # --- When ---
     flights_page = home_page.click_search()
+
+    total_passengers = adults + teens + children + infants
+    expected_journey_details = flights_page.expected_journey_details(outbound_date, inbound_date, total_passengers)
+    assert expected_journey_details == flights_page.actual_journey_details(), "Mismatched journey details"
+
     fares_page = flights_page.select_suggested_flights()
 
     passengers_page = fares_page.select_fare_type(FareType.REGULAR)
 
     # --- Then ---
-    assert passengers_page.is_passengers_form_disabled() is True
+    assert passengers_page.is_passengers_form_disabled() is True, "Passengers form not disabled"
     passengers_page.click_login_later()
-    assert passengers_page.is_passengers_form_disabled() is False
+    assert passengers_page.is_passengers_form_disabled() is False, "Passengers form is disabled"
 
     # --- And when filling passengers ---
     passengers = generate_passengers(adults=adults, teens=teens, children=children, infants=infants)
