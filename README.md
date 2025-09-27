@@ -112,6 +112,11 @@ pytest --html=report.html --self-contained-html
 
 ---
 
+## Demo
+Recording attachement: https://github.com/tijothomas95/PytestPlaywrightAutomation/releases/tag/v1.0.0
+
+---
+
 ## Pytest Markers
 Markers are defined in `pytest.ini`:
 
@@ -134,8 +139,8 @@ pytest --browser=firefox
 ---
 
 ## Project Structure
+
 ```
-.
 ├── src/
 │   ├── model/           # Page objects
 │   ├── tests/           # Test cases
