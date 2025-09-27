@@ -1,6 +1,6 @@
 # Pytest + Playwright Automation Framework
 
-This repository contains an **end-to-end test automation framework** built with [Pytest](https://docs.pytest.org), [Playwright](https://playwright.dev/python/), and [Allure Reporting](https://allurereport.org/).  
+This repository contains an **end-to-end test automation framework** built with [Pytest](https://docs.pytest.org), [Playwright](https://playwright.dev/python/), [Allure Reporting](https://allurereport.org/) and uses [GitHub Actions CICD](https://docs.github.com/en/actions/get-started/quickstart).  
 It supports running tests **locally** and inside **Docker Compose**, with parallel execution and cross-browser support.  
 
 ---
@@ -12,6 +12,25 @@ It supports running tests **locally** and inside **Docker Compose**, with parall
 - **Parallel Execution**: `pytest-xdist`
 - **Reporting**: `allure-pytest`, `pytest-html`
 - **Test Data**: `faker`
+
+---
+
+## CI/CD Pipeline (GitHub Actions)
+
+This project uses **GitHub Actions** for automated CI/CD.  
+Every push or pull request to `main` will:
+
+1. **Set up environment**  
+   - Python 
+   - Dependencies
+
+2. **Run tests in Docker / Playwright**  
+   - Parallel execution with `pytest-xdist`  
+   - Retry on failure (`pytest-rerunfailures`)  
+
+3. **Generate Allure Report**  
+   - Test results uploaded as artifacts  
+   - Published to GitHub Pages for live viewing  
 
 ---
 
@@ -134,3 +153,4 @@ pytest --browser=firefox
 - **Faker** → Fake user data generation
 
 ---
+
