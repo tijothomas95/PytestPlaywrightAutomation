@@ -115,6 +115,12 @@ pytest --html=report.html --self-contained-html
 ## Demo
 Recording attachement: https://github.com/tijothomas95/PytestPlaywrightAutomation/releases/tag/v1.0.0
 
+<img width="1438" height="823" alt="Screenshot 2025-09-27 at 12 31 15" src="https://github.com/user-attachments/assets/8634bb0b-a67d-4e2b-a74f-0b84ac1190e6" />
+
+<img width="1435" height="554" alt="image" src="https://github.com/user-attachments/assets/c37426ea-229c-441d-aa8c-390ebee14bb7" />
+
+<img width="1440" height="773" alt="Screenshot 2025-09-27 at 12 31 29" src="https://github.com/user-attachments/assets/545a2391-1813-42d2-839d-36d78d085e97" />
+
 ---
 
 ## Pytest Markers
