@@ -32,6 +32,16 @@ jobs:
         name: allure-results
         path: allure-results
 
+    - name: Install Allure CLI
+      if: always()
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openjdk-11-jre
+        curl -Ls https://github.com/allure-framework/allure2/releases/download/2.29.0/allure-2.29.0.tgz -o allure.tgz
+        sudo tar -zxvf allure.tgz -C /opt/
+        sudo ln -s /opt/allure-2.29.0/bin/allure /usr/bin/allure
+        allure --version
+
     - name: Generate Allure Report
       if: always()
       run: |
@@ -46,5 +56,5 @@ jobs:
         publish_branch: gh-pages
 
     - name: Show Allure Report URL
-      continue-on-error: true
+      if: always()
       run: echo "Allure Report deployed https://tijothomas95.github.io/PytestPlaywrightAutomation/"
