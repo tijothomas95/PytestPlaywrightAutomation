@@ -38,8 +38,8 @@ Every push or pull request to `main` will:
 
 ### Clone the repo
 ```bash
-git clone https://github.com/your-org/pytest-playwright-automation.git
-cd pytest-playwright-automation
+git clone https://github.com/tijothomas95/PytestPlaywrightAutomation.git
+cd PytestPlaywrightAutomation
 ```
 
 ### Install dependencies
@@ -158,4 +158,3 @@ pytest --browser=firefox
 - **Faker** → Fake user data generation
 
 ---
-
