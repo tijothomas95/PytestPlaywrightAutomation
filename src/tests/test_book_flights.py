@@ -12,14 +12,14 @@ def test_failed_case(home_page):
 "adults, teens, children, infants",
     [(2, 0, 0, 0)]
 )
-@pytest.mark.smoke
+@pytest.mark.regression
 def test_search_flights(home_page, adults, teens, children, infants):
     # --- Given ---
     home_page.select_travel_type(TravelType.RETURN_TRIP)
     home_page.fill_departure_fld(Location.DUBLIN)
     home_page.fill_destination_fld(Location.MADRID)
 
-    outbound_date, inbound_date = get_trip_dates(14, 15)
+    outbound_date, inbound_date = get_trip_dates(days_from_today=14, return_after_days=15)
     home_page.select_travel_date(outbound_date)
     home_page.select_travel_date(inbound_date)
 
