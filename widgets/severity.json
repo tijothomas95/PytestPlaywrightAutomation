@@ -1,0 +1,1 @@
+[{"uid":"e9e2fb9d0bedf933","name":"test_search_flights[2-0-0-0]","time":{"start":1758961858340,"stop":1758961885888,"duration":27548},"status":"passed","severity":"normal"},{"uid":"fa2c4b198698b2c","name":"test_home_page_title","time":{"start":1758961858320,"stop":1758961858326,"duration":6},"status":"passed","severity":"normal"}]
