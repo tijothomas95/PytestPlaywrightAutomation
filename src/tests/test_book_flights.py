@@ -1,12 +1,13 @@
 import pytest
+import re
 from playwright.sync_api import expect
 
 from utils.enums import TravelType, Location, PassengerType, FareType
 from utils.fake_data import generate_passengers, get_trip_dates
 
 @pytest.mark.smoke
-def test_failed_case(home_page):
-    assert home_page.title() == "Forcefully failed"
+def test_home_page_title(home_page):
+    expect(home_page.page).to_have_title(re.compile("Ryanair"))
 
 @pytest.mark.parametrize(
 "adults, teens, children, infants",
