@@ -75,14 +75,14 @@ pytest -n auto --browser=chromium
 ---
 
 ### Docker Run
-Spin up containers:
+Spin up containers and by default tests run in chromium and generate allure report:
 ```bash
 docker compose up --build
 ```
 
-Run tests inside container:
+Run tests using firefox browser inside container and generate allure report:
 ```bash
-docker compose run tests pytest -n auto --browser=firefox
+docker compose run tests pytest -n auto --browser=firefox --alluredir=allure-results
 ```
 
 Tear down:
