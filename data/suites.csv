@@ -1,3 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Oct 01 07:23:29 UTC 2025","Wed Oct 01 07:23:58 UTC 2025","28345","src.tests","test_book_flights","","","","test_search_flights[2-0-0-0]",""
-"passed","Wed Oct 01 07:23:29 UTC 2025","Wed Oct 01 07:23:29 UTC 2025","7","src.tests","test_book_flights","","","","test_home_page_title",""
+"passed","Thu Oct 02 05:29:12 UTC 2025","Thu Oct 02 05:29:12 UTC 2025","9","src.tests","test_book_flights","","","","test_home_page_title",""
+"broken","Thu Oct 02 05:29:50 UTC 2025","Thu Oct 02 05:30:20 UTC 2025","30040","src.tests","test_book_flights","","","","test_search_flights[2-0-0-0]",""
